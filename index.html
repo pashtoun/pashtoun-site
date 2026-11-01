@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pashtoun Youssof</title>
+<meta name="description" content="Pashtoun Youssof builds new lines of business in professional services, from idea to flywheel. Game master, Wing Chun instructor, cook, and keeper of the moon's phases.">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #EEF0EC;
+    --ink: #1E2522;
+    --ink-soft: #4A544F;
+    --rule: #C9CEC8;
+    --sky: #1F2B3A;
+    --moon-lit: #F4F1E6;
+    --moon-dark: #34404F;
+    --focus: #2F5D8A;
+
+    /* seasonal accents, light */
+    --winter: #3E5C76;
+    --spring: #4C7A47;
+    --summer: #86650F;
+    --autumn: #7B2D3A;
+    --accent: var(--autumn);
+
+    --measure: 36rem;
+    --serif: "Latin Modern Roman", "CMU Serif", "Computer Modern Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  html[data-season="winter"] { --accent: var(--winter); }
+  html[data-season="spring"] { --accent: var(--spring); }
+  html[data-season="summer"] { --accent: var(--summer); }
+  html[data-season="autumn"] { --accent: var(--autumn); }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --paper: #141A22;
+      --ink: #E7E5DD;
+      --ink-soft: #A9AEA8;
+      --rule: #2E3743;
+      --sky: #0C1118;
+      --moon-lit: #EDEAE0;
+      --moon-dark: #262F3B;
+      --focus: #9CC3EA;
+      --winter: #9DB9D4;
+      --spring: #9CC796;
+      --summer: #D9B95E;
+      --autumn: #D99AA4;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+  }
+  a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  .page { max-width: 64rem; margin: 0 auto; padding: 4rem 1.5rem 3rem; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(12rem, 20rem) 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .moon { width: 100%; height: auto; display: block; }
+  .moon .sky { fill: var(--sky); }
+  .moon .disk { fill: var(--moon-dark); }
+  .moon .lit { fill: var(--moon-lit); }
+  h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.25rem;
+  }
+  .lede { font-size: 1.3rem; line-height: 1.5; max-width: 30rem; margin: 0 0 1.75rem; }
+  .almanac { margin: 0; color: var(--ink-soft); font-style: italic; }
+  .almanac p { margin: 0.15rem 0; }
+  .almanac strong { font-weight: 400; font-style: normal; color: var(--accent); }
+
+  /* ---------- sections ---------- */
+  section { padding: 3rem 0 0; }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    margin: 0 0 1rem;
+    color: var(--accent);
+  }
+  .prose { max-width: var(--measure); }
+  .prose p { margin: 0 0 1rem; }
+  .creed { list-style: none; padding: 0; margin: 0 0 1.5rem; font-size: 1.3rem; line-height: 1.45; }
+  .creed li + li { margin-top: 0.45rem; }
+  .creed li { margin: 0.2rem 0; }
+
+  .notes { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
+  .notes li {
+    margin: 0 0 1.1rem;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--accent);
+    font-style: italic;
+  }
+
+  .life {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 3.5rem;
+    max-width: 58rem;
+  }
+  .life h3 { font-size: 1.25rem; font-weight: 400; font-style: italic; margin: 0 0 0.4rem; }
+  .life p { margin: 0; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .latex { font-family: var(--serif); letter-spacing: 0; }
+  .latex .a { font-size: 0.75em; vertical-align: 0.25em; margin-left: -0.36em; margin-right: -0.15em; }
+  .latex .e { vertical-align: -0.22em; margin-left: -0.1667em; margin-right: -0.125em; }
+  .qed { color: var(--ink); margin-left: 0.4rem; }
+
+  @media (max-width: 760px) {
+    .page { padding-top: 2.5rem; }
+    .hero { grid-template-columns: 1fr; gap: 2rem; }
+    .moon-wrap { max-width: 13rem; }
+    .life { grid-template-columns: 1fr; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="hero">
+    <div class="moon-wrap">
+      <svg class="moon" id="moon" viewBox="0 0 200 200" role="img" aria-labelledby="moon-label">
+        <title id="moon-label">Tonight's moon</title>
+        <circle class="sky" cx="100" cy="100" r="100"></circle>
+        <circle class="disk" cx="100" cy="100" r="76"></circle>
+        <path class="lit" id="moon-lit" d=""></path>
+      </svg>
+    </div>
+    <div>
+      <h1>Pashtoun Youssof</h1>
+      <p class="lede">I build new lines of business, from idea to flywheel. I also run tabletop campaigns, teach Wing Chun, cook for friends, and keep time by the moon.</p>
+      <div class="almanac" aria-live="polite">
+        <p id="moon-text">Tonight's moon.</p>
+        <p id="season-text"></p>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="work">
+    <h2 id="work">Work</h2>
+    <div class="prose">
+      <ul class="creed">
+        <li>I’m a Founder-Operator.</li>
+        <li>I turn new services into repeatable programs that scale from dozens of customers to thousands.</li>
+        <li>I design the commercial and delivery models behind them, and build the multi-layered organizations that run them.</li>
+        <li>I own the outcome, from the executive business case to delivery.</li>
+      </ul>
+      <p>I started my career running my own consultancy, and I've built businesses the same way inside larger companies ever since. I find the idea, sell it to our sellers, help them sell it to clients, teach architects to scope it, and lead delivery until it runs on its own. Then I hand it to a leader I trust and build the next one.</p>
+      <p>Over more than 20 years in cloud and infrastructure services, that has meant building an AWS practice at Presidio that earned AWS Premier Tier status, building a subscription services business at SADA, and today leading Google Cloud platform engineering at Insight across five countries.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="notes">
+    <h2 id="notes">Field notes</h2>
+    <ul class="notes">
+      <li>Revenue comes first, then gross profit, then utilization. Each one matters only once the one before it is on plan.</li>
+      <li>The fastest way to destroy the morale of your high performers is to tolerate your low performers.</li>
+      <li>Share costs and revenue with a new practice while it can't carry its own weight. Separate them before the sharing hides its true economics.</li>
+      <li>When two teams sell the same work to the same client, separation becomes competition.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="life">
+    <h2 id="life">Away from work</h2>
+    <div class="life">
+      <div>
+        <h3>At the table</h3>
+        <p>I'm a game master. I run tabletop role-playing games, and running a table has more in common with running a program than you'd think: everyone wants something different, the plan rarely survives the first session, and the best moments come from what the players decide.</p>
+      </div>
+      <div>
+        <h3>Wing Chun</h3>
+        <p>I teach Wing Chun, a Southern Chinese martial art built on economy of motion. Protect the centerline, take the shortest path, and stay relaxed under pressure. It's good advice outside the school, too.</p>
+      </div>
+      <div>
+        <h3>The kitchen</h3>
+        <p>I love to cook and to host dinner parties. If we've shared a meal, you already know more about me than this page can tell you.</p>
+      </div>
+      <div>
+        <h3>Moon and seasons</h3>
+        <p>I revere the turning of the seasons and the phases of the moon. This page follows both: the moon at the top is tonight's, and the colors change with each season.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Get in touch</h2>
+    <div class="prose">
+      <p>The best way to reach me is on <a href="https://www.linkedin.com/in/pashtoun">LinkedIn</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Set in the spirit of <span class="latex">L<span class="a">a</span>T<span class="e">e</span>X</span>.</span>
+    <span>Seattle, Washington<span class="qed" aria-hidden="true">&#8718;</span></span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var SYNODIC = 29.530588853;              // days in a lunar month
+  var KNOWN_NEW = Date.UTC(2000, 0, 6, 18, 14); // reference new moon
+  var DAY = 86400000;
+
+  var now = new Date();
+  var age = ((now.getTime() - KNOWN_NEW) / DAY) % SYNODIC;
+  if (age < 0) age += SYNODIC;
+  var p = age / SYNODIC;                                   // 0 new, 0.5 full
+  var illum = (1 - Math.cos(2 * Math.PI * p)) / 2;
+
+  var names = [
+    [1.84566, "new moon"], [5.53699, "waxing crescent"], [9.22831, "first quarter moon"],
+    [12.91963, "waxing gibbous moon"], [16.61096, "full moon"], [20.30228, "waning gibbous moon"],
+    [23.99361, "last quarter moon"], [27.68493, "waning crescent"], [99, "new moon"]
+  ];
+  var phase = names.find(function (n) { return age < n[0]; })[1];
+
+  // Draw the lit portion. Northern hemisphere: waxing is lit on the right.
+  var r = 76, cx = 100, cy = 100;
+  var k = Math.cos(2 * Math.PI * p);
+  var rx = Math.abs(k) * r;
+  var top = cx + " " + (cy - r), bottom = cx + " " + (cy + r);
+  var d;
+  if (p < 0.5) {
+    d = "M " + top + " A " + r + " " + r + " 0 0 1 " + bottom +
+        " A " + rx + " " + r + " 0 0 " + (k > 0 ? 0 : 1) + " " + top + " Z";
+  } else {
+    d = "M " + top + " A " + r + " " + r + " 0 0 0 " + bottom +
+        " A " + rx + " " + r + " 0 0 " + (k > 0 ? 1 : 0) + " " + top + " Z";
+  }
+  if (illum > 0.005) document.getElementById("moon-lit").setAttribute("d", d);
+
+  var daysToFull = (SYNODIC / 2 - age + SYNODIC) % SYNODIC;
+  var daysToNew = SYNODIC - age;
+  var pct = Math.round(illum * 100);
+  var label = "Tonight: " + phase + ", " + pct + "% lit.";
+  var next;
+  if (phase === "full moon") next = " Full tonight.";
+  else if (daysToFull < daysToNew) next = " Full in " + Math.round(daysToFull) + (Math.round(daysToFull) === 1 ? " day." : " days.");
+  else next = " New in " + Math.round(daysToNew) + (Math.round(daysToNew) === 1 ? " day." : " days.");
+  var moonText = document.getElementById("moon-text");
+  moonText.innerHTML = "Tonight: <strong>" + phase + "</strong>, " + pct + "% lit." + next;
+  document.getElementById("moon-label").textContent = label + next;
+
+  // Seasons (northern hemisphere, approximate turning dates).
+  var y = now.getFullYear();
+  var turns = [
+    { date: new Date(y - 1, 11, 21), season: "winter", name: "winter solstice" },
+    { date: new Date(y, 2, 20), season: "spring", name: "spring equinox" },
+    { date: new Date(y, 5, 21), season: "summer", name: "summer solstice" },
+    { date: new Date(y, 8, 22), season: "autumn", name: "autumn equinox" },
+    { date: new Date(y, 11, 21), season: "winter", name: "winter solstice" },
+    { date: new Date(y + 1, 2, 20), season: "spring", name: "spring equinox" }
+  ];
+  var today = new Date(y, now.getMonth(), now.getDate());
+  var current = turns[0], upcoming = turns[1];
+  for (var i = 0; i < turns.length - 1; i++) {
+    if (today >= turns[i].date && today < turns[i + 1].date) { current = turns[i]; upcoming = turns[i + 1]; break; }
+  }
+  document.documentElement.setAttribute("data-season", current.season);
+  var days = Math.round((upcoming.date - today) / DAY);
+  var seasonName = current.season.charAt(0).toUpperCase() + current.season.slice(1);
+  document.getElementById("season-text").innerHTML =
+    "<strong>" + seasonName + "</strong>. " + (days === 0 ? "The " + upcoming.name + " is today." :
+    days + (days === 1 ? " day" : " days") + " until the " + upcoming.name + ".");
+})();
+</script>
+</body>
+</html>
